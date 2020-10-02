@@ -1,0 +1,24 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'jacoco'
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+testImplementation 'junit:junit:4.12'
+compile group: 'net.sourceforge.htmlunit', name: 'htmlunit', version: '2.31'
+}
+
+jacocoTestReport {
+	reports {
+		xml.enabled false
+		csv.enabled false
+		html.destination file("${buildDir}/jacocoHTML")
+	}
+}
+
+mainClassName = 'UnitTestDemo.Library'
